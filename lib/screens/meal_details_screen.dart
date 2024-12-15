@@ -17,8 +17,8 @@ class MealDetailsScreen extends StatelessWidget {
     required this.calories,
     required this.ingredients,
     required this.preparation,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -97,7 +97,8 @@ class MealDetailsScreen extends StatelessWidget {
                     // Ingredients
                     const Text(
                       'Ingredients: (per person)',
-                      style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                      style:
+                          TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                     ),
                     const SizedBox(height: 8),
                     Column(
@@ -113,14 +114,16 @@ class MealDetailsScreen extends StatelessWidget {
                     // Preparation
                     const Text(
                       'Preparation:',
-                      style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                      style:
+                          TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                     ),
                     const SizedBox(height: 8),
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: preparation
                           .map((step) => Padding(
-                                padding: const EdgeInsets.symmetric(vertical: 4.0),
+                                padding:
+                                    const EdgeInsets.symmetric(vertical: 4.0),
                                 child: Text(
                                   '- $step',
                                   style: const TextStyle(fontSize: 14),

@@ -5,8 +5,8 @@ class FilterPopup extends StatefulWidget {
 
   const FilterPopup({
     required this.onApply,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   _FilterPopupState createState() => _FilterPopupState();
@@ -53,7 +53,8 @@ class _FilterPopupState extends State<FilterPopup> {
         ),
         ElevatedButton(
           onPressed: () {
-            widget.onApply(selectedFilters.toList()); // Pass selected filters back
+            widget.onApply(
+                selectedFilters.toList()); // Pass selected filters back
             Navigator.pop(context);
           },
           child: const Text('Apply'),
