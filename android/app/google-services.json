@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "295596573405",
+    "project_id": "know-your-meal-4c764",
+    "storage_bucket": "know-your-meal-4c764.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:295596573405:android:faec13594c26e9f2c11134",
+        "android_client_info": {
+          "package_name": "com.example.know_your_meal"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAILaJRZc6WnrQ01lueBMLW6YOM23Rsd6U"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
