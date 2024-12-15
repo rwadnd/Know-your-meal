@@ -56,7 +56,6 @@ class _MealOfDayScreenState extends State<MealOfDayScreen> {
         });
       }
     } catch (e) {
-      print('Error fetching meals: $e');
       setState(() {
         isLoading = false;
       });
@@ -229,7 +228,7 @@ class _MealOfDayScreenState extends State<MealOfDayScreen> {
                         borderRadius: BorderRadius.circular(10),
                       ),
                     ),
-                    child: const Text('Pick my meal'),
+                    child: const Text('Surprise me'),
                   ),
                 ],
               ),
