@@ -6,6 +6,8 @@ import '../screens/meal_details_screen.dart';
 import '../widgets/filter_popup.dart';
 
 class MealOfDayScreen extends StatefulWidget {
+  const MealOfDayScreen({super.key});
+
   @override
   _MealOfDayScreenState createState() => _MealOfDayScreenState();
 }
@@ -39,7 +41,8 @@ class _MealOfDayScreenState extends State<MealOfDayScreen> {
       if (snapshot.exists) {
         final data = Map<String, dynamic>.from(snapshot.value as Map);
         final fetchedMeals = data.entries.map((entry) {
-          return Meal.fromMap(entry.key, Map<String, dynamic>.from(entry.value));
+          return Meal.fromMap(
+              entry.key, Map<String, dynamic>.from(entry.value));
         }).toList();
 
         setState(() {
@@ -53,7 +56,6 @@ class _MealOfDayScreenState extends State<MealOfDayScreen> {
         });
       }
     } catch (e) {
-      print('Error fetching meals: $e');
       setState(() {
         isLoading = false;
       });
@@ -81,7 +83,7 @@ class _MealOfDayScreenState extends State<MealOfDayScreen> {
             isFilterApplied = filters.isNotEmpty;
 
             if (filteredMeals.isEmpty) {
-              selectedMeal =  Meal(
+              selectedMeal = Meal(
                 name: '????',
                 description: '',
                 imageUrl: 'https://i.ibb.co/Drr3T20/question-mark.jpg',
@@ -141,7 +143,8 @@ class _MealOfDayScreenState extends State<MealOfDayScreen> {
                                       selectedMeal = Meal(
                                         name: '????',
                                         description: '',
-                                        imageUrl: 'https://i.ibb.co/Drr3T20/question-mark.jpg',
+                                        imageUrl:
+                                            'https://i.ibb.co/Drr3T20/question-mark.jpg',
                                         timeToCook: 0,
                                         calories: 0,
                                         ingredients: [],
@@ -172,7 +175,8 @@ class _MealOfDayScreenState extends State<MealOfDayScreen> {
                     ],
                   ),
                   const SizedBox(height: 40),
-                  ClipRRect(borderRadius: const BorderRadius.all(Radius.circular(25)),
+                  ClipRRect(
+                    borderRadius: const BorderRadius.all(Radius.circular(25)),
                     child: Container(
                       width: 300,
                       height: 300,
@@ -224,7 +228,7 @@ class _MealOfDayScreenState extends State<MealOfDayScreen> {
                         borderRadius: BorderRadius.circular(10),
                       ),
                     ),
-                    child: const Text('Pick my meal'),
+                    child: const Text('Surprise me'),
                   ),
                 ],
               ),

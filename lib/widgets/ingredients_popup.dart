@@ -5,8 +5,8 @@ class IngredientsPopup extends StatelessWidget {
 
   const IngredientsPopup({
     required this.onFilter,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {

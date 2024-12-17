@@ -6,6 +6,8 @@ import '../widgets/ingredients_popup.dart';
 import '../widgets/filter_popup.dart';
 
 class HomeContentScreen extends StatefulWidget {
+  const HomeContentScreen({super.key});
+
   @override
   _HomeContentScreenState createState() => _HomeContentScreenState();
 }
@@ -30,7 +32,8 @@ class _HomeContentScreenState extends State<HomeContentScreen> {
       if (snapshot.exists) {
         final data = Map<String, dynamic>.from(snapshot.value as Map);
         final fetchedMeals = data.entries.map((entry) {
-          return Meal.fromMap(entry.key, Map<String, dynamic>.from(entry.value));
+          return Meal.fromMap(
+              entry.key, Map<String, dynamic>.from(entry.value));
         }).toList();
 
         setState(() {
@@ -44,7 +47,6 @@ class _HomeContentScreenState extends State<HomeContentScreen> {
         });
       }
     } catch (e) {
-      print('Error fetching meals: $e');
       setState(() {
         isLoading = false;
       });
@@ -60,19 +62,17 @@ class _HomeContentScreenState extends State<HomeContentScreen> {
     });
   }
 
-void _filterMealsByIngredients(List<String> inputIngredients) {
-  setState(() {
-    filteredMeals = meals.where((meal) {
-      // Ensure all input ingredients partially match the meal's ingredients
-      return inputIngredients.every((input) =>
-          meal.ingredients.any((ingredient) =>
-              ingredient.toLowerCase().contains(input)));
-    }).toList();
+  void _filterMealsByIngredients(List<String> inputIngredients) {
+    setState(() {
+      filteredMeals = meals.where((meal) {
+        // Ensure all input ingredients partially match the meal's ingredients
+        return inputIngredients.every((input) => meal.ingredients
+            .any((ingredient) => ingredient.toLowerCase().contains(input)));
+      }).toList();
 
-    isIngredientsFiltered = true; // Track that ingredients filter is applied
-  });
-}
-
+      isIngredientsFiltered = true; // Track that ingredients filter is applied
+    });
+  }
 
   void _clearFilters() {
     setState(() {
@@ -118,7 +118,10 @@ void _filterMealsByIngredients(List<String> inputIngredients) {
                             foregroundColor: Colors.black,
                             side: const BorderSide(color: Colors.black),
                           ),
-                          child: const Text('Clear Filters', style: TextStyle(fontSize: 12),),
+                          child: const Text(
+                            'Clear Filters',
+                            style: TextStyle(fontSize: 12),
+                          ),
                         )
                       : ElevatedButton(
                           onPressed: () {
@@ -148,14 +151,18 @@ void _filterMealsByIngredients(List<String> inputIngredients) {
                             foregroundColor: Colors.black,
                             side: const BorderSide(color: Colors.black),
                           ),
-                          child: const Text('Clear Ingredients', style: TextStyle(fontSize: 12),),
+                          child: const Text(
+                            'Clear Ingredients',
+                            style: TextStyle(fontSize: 12),
+                          ),
                         )
                       : ElevatedButton(
                           onPressed: () {
                             showDialog(
                               context: context,
                               builder: (context) => IngredientsPopup(
-                                onFilter: _filterMealsByIngredients, // Pass ingredients
+                                onFilter:
+                                    _filterMealsByIngredients, // Pass ingredients
                               ),
                             );
                           },
@@ -177,7 +184,7 @@ void _filterMealsByIngredients(List<String> inputIngredients) {
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 0),
               child: GridView.builder(
-                padding: EdgeInsets.all(0),
+                padding: const EdgeInsets.all(0),
                 gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 2,
                   crossAxisSpacing: 8,

@@ -10,12 +10,13 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
-);
-  runApp(KnowYourMealApp());
-  
+  );
+  runApp(const KnowYourMealApp());
 }
 
 class KnowYourMealApp extends StatelessWidget {
+  const KnowYourMealApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -25,12 +26,14 @@ class KnowYourMealApp extends StatelessWidget {
         primarySwatch: Colors.green,
         scaffoldBackgroundColor: Colors.white,
       ),
-      home: MainNavigation(),
+      home: const MainNavigation(),
     );
   }
 }
 
 class MainNavigation extends StatefulWidget {
+  const MainNavigation({super.key});
+
   @override
   _MainNavigationState createState() => _MainNavigationState();
 }
@@ -39,9 +42,9 @@ class _MainNavigationState extends State<MainNavigation> {
   int _currentIndex = 0;
 
   final List<Widget> _screens = [
-    HomeContentScreen(),  // Home screen content
-    MealOfDayScreen(),    // Meal of the day screen
-    AboutUsScreen(),      // Profile screen
+    const HomeContentScreen(), // Home screen content
+    const MealOfDayScreen(), // Meal of the day screen
+    const AboutUsScreen(), // Profile screen
   ];
 
   void _onTabTapped(int index) {

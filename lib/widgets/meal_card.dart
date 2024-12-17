@@ -18,8 +18,8 @@ class MealCard extends StatelessWidget {
     required this.calories,
     required this.ingredients,
     required this.preparation, // Initialize preparation steps
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
