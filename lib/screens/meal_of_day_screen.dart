@@ -229,7 +229,7 @@ class _MealOfDayScreenState extends State<MealOfDayScreen> {
                         borderRadius: BorderRadius.circular(10),
                       ),
                     ),
-                    child: const Text('Pick my meal'),
+                    child: const Text('Surprise me'),
                   ),
                 ],
               ),
